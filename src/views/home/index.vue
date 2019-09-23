@@ -33,7 +33,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    font-size: .16rem;
   }
   .box .main{
     width: 100%;
@@ -41,7 +41,7 @@ export default {
   }
   .bottom{
     width: 100%;
-    height: 50px;
+    height: 1rem;
     /* bottom: 0; */
     background: white;
     box-shadow: 0 -3px 10px 0 rgba(0,0,0,.2);
