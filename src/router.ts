@@ -10,6 +10,12 @@ export default new Router({
       path: '/',
       name: 'home',
       component: ()=> import('@/views/home/index.vue'),
+      children:[
+         {
+           path:"/shopCar",
+           component:()=> import('./views/home/navPage/shopCar.vue')
+         }
+      ]
     },
     {
       path: '/login',
