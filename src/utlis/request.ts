@@ -2,7 +2,7 @@ import axios from 'axios';
 import {getToken} from './gettoken';
 console.log(getToken('token'))
 const instance = axios.create({
-    baseURL: '/api', //是用于请求的服务器URL
+    baseURL: 'http://127.0.0.1:8888', //是用于请求的服务器URL
     timeout:1000, //请求超时时间  如果请求花费超过了timeout 的时间，请求将被中断
     headers:{'token':getToken('token')}//自定义请求头
 });

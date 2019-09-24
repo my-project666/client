@@ -14,7 +14,12 @@ export default new Router({
          {
            path:"/shopCar",
            component:()=> import('./views/home/navPage/shopCar.vue')
-         }
+         },
+         {
+           path:"/special",
+           component:()=> import ('./views/home/navPage/special.vue')
+         },
+        
       ]
     },
     {

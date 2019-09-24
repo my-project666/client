@@ -3,6 +3,7 @@
     <div class="main">
           <router-view></router-view>
     </div>
+
     <div class="bottom">
       <ul>
         <li>
@@ -35,9 +36,10 @@ export default {
     align-items: center;
     font-size: .16rem;
   }
-  .box .main{
+  .box>.main{
     width: 100%;
     flex: 1;
+    overflow: hidden;
   }
   .bottom{
     width: 100%;
