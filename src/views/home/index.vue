@@ -17,7 +17,7 @@
           <i class="iconfont">&#xe616;</i>
           <span>分类</span>
         </router-link>
-        <router-link to="/ShoppingCart" tag="li">
+        <router-link to="/shopCar" tag="li">
           <i class="iconfont">&#xe614;</i>
           <span>购物车</span>
         </router-link>
@@ -45,10 +45,11 @@ export default {
     font-size:.16rem;
 
   }
-  .box .main{
+ 
+  .box>.main{
     width: 100%;
     flex: 1;
-    overflow:auto;
+    overflow: hidden;
   }
   .bottom{
     width: 100%;

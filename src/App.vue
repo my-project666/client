@@ -19,4 +19,8 @@
   html{
     font-size:13.333333vw;
   }
+  html{
+      // font-size: calc(100/375*100vw);
+      font-size: 13.333333vw;
+  }
 </style>

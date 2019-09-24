@@ -73,6 +73,7 @@ export default {
     .my{
         width: 100%;
         height: 100%;
+        overflow: auto;
     }
     .my .my_top{
         height: 3rem;
