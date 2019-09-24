@@ -9,9 +9,34 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: ()=> import('@/views/home/index.vue'),
+      component: ()=>import('./views/home/index.vue'),
       children:[
-         {
+        {
+          path:'/homePage',
+          name:'homePage',
+          component:()=>import('./components/homePage.vue')
+        },
+        {
+          path:'/classification',
+          name:'classification',
+          component:()=>import('./components/classification.vue')
+        },
+        {
+          path:'/my',
+          name:'my',
+          component:()=>import('./components/my.vue')
+        },
+        {
+          path:'/ShoppingCart',
+          name:"ShoppingCart",
+          component:()=>import('./components/ShoppingCart.vue')
+        },
+        // {
+        //   path:'/special',
+        //   name:'special',
+        //   component:()=>import('./components/special.vue')
+        // },
+        {
            path:"/shopCar",
            component:()=> import('./views/home/navPage/shopCar.vue')
          },
@@ -19,7 +44,6 @@ export default new Router({
            path:"/special",
            component:()=> import ('./views/home/navPage/special.vue')
          },
-        
       ]
     },
     {
@@ -30,6 +54,7 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () => import('@/views/login/index.vue')
+
     }
   ]
 })
