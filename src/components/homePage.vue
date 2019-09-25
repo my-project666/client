@@ -23,27 +23,10 @@
     </div>
     <div class="home_nav">
         <ul >
-            <li v-for="item in channel" :key="item.id">
+            <li v-for="item in channel" :key="item.id" @click="homeNav(item.id)">
                 <img :src="item.icon_url" alt="">
-                <!-- <i class="iconfont">&#xe60a;</i> -->
                 <span>{{item.name}}</span>
             </li>
-            <!-- <li>
-                <i class="iconfont">&#xe614;</i>
-                <span>餐厨</span>
-            </li>
-            <li>
-                <i class="iconfont">&#xe649;</i>
-                <span>配件</span>
-            </li>
-            <li>
-                <i class="iconfont">&#xe64c;</i>
-                <span>服装</span>
-            </li>
-            <li>
-                <i class="iconfont">&#xe606;</i>
-                <span>志趣</span>
-            </li> -->
         </ul>
     </div>
     <div class="home_brandBox">
@@ -281,6 +264,10 @@ export default {
             this.pase =result.data.banner;
             this.brandList = result.data.brandList;
             this.channel = result.data.channel;
+      },
+      homeNav (id){
+          console.log(id)
+          this.$router.history.push('/homeNavse/'+id)
       }
       
   }

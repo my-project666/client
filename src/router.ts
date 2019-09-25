@@ -49,6 +49,10 @@ export default new Router({
       name: 'login',
       component: () => import('@/views/login/index.vue')
 
+    },
+    {
+      path:'/homeNavse/:id?',
+      component:()=>import('./components/homePages/homeNav.vue')
     }
   ]
 })
