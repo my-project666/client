@@ -17,11 +17,6 @@ export default new Router({
           component:()=>import('./components/homePage.vue')
         },
         {
-          path:'/classification',
-          name:'classification',
-          component:()=>import('./components/classification.vue')
-        },
-        {
           path:'/my',
           name:'my',
           component:()=>import('./components/my.vue')
@@ -31,11 +26,6 @@ export default new Router({
           name:"ShoppingCart",
           component:()=>import('./components/ShoppingCart.vue')
         },
-        // {
-        //   path:'/special',
-        //   name:'special',
-        //   component:()=>import('./components/special.vue')
-        // },
         {
            path:"/shopCar",
            component:()=> import('./views/home/navPage/shopCar.vue')
