@@ -29,7 +29,7 @@ export default {
   methods:{
       ...mapActions('special',['getList']),
       details(id){
-          console.log(id)
+          this.$router.push(`/specialDl/${id}`)
       }
   },
   created(){
