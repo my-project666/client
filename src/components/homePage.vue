@@ -22,12 +22,13 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="home_nav">
-        <ul>
-            <li>
-                <i class="iconfont">&#xe60a;</i>
-                <span>居家</span>
+        <ul >
+            <li v-for="item in channel" :key="item.id">
+                <img :src="item.icon_url" alt="">
+                <!-- <i class="iconfont">&#xe60a;</i> -->
+                <span>{{item.name}}</span>
             </li>
-            <li>
+            <!-- <li>
                 <i class="iconfont">&#xe614;</i>
                 <span>餐厨</span>
             </li>
@@ -42,7 +43,7 @@
             <li>
                 <i class="iconfont">&#xe606;</i>
                 <span>志趣</span>
-            </li>
+            </li> -->
         </ul>
     </div>
     <div class="home_brandBox">
@@ -50,41 +51,14 @@
             品牌制造商直供
         </div>
         <div class="home_brandBox_con">
-            <a href="#">
+            <a href="#" v-for="item in brandList" :key="item.id">
                 <div class="home_brandBox_con_div">
-                    CK制造商
+                    {{item.name}}
                 </div>
                 <div class="home_brandBox_con_div1">
-                    39元起
+                    {{item.floor_price}}元起
                 </div>
-                <img src="../images/4.jpg" alt="">
-            </a>
-            <a href="#">
-                <div class="home_brandBox_con_div">
-                    MUJI制造商
-                </div>
-                <div class="home_brandBox_con_div1">
-                    12.9元起
-                </div> 
-                    <img src="../images/5.jpg" alt="">
-            </a>
-            <a href="#">
-                <div class="home_brandBox_con_div">
-                    WMF制造商
-                </div>
-                <div class="home_brandBox_con_div1">
-                    9.9元起
-                </div> 
-                    <img src="../images/6.jpg" alt="">
-            </a>
-            <a href="#">
-                <div class="home_brandBox_con_div">
-                    Coach制造商
-                </div>
-                <div class="home_brandBox_con_div1">
-                    49元起
-                </div> 
-                    <img src="../images/7.jpg" alt="">
+                <img :src="item.new_pic_url" alt="">
             </a>
         </div>
     </div>
@@ -263,7 +237,16 @@
 <script>
 import Swiper from 'swiper';
 import 'swiper/css/swiper.min.css'
+import {home} from '../http/home'
 export default {
+    data(){
+        return{
+            pase:[],
+            brandList:[],
+            channel:[],
+            iconfonts:['&#xe60a;','&#xe614;']
+        }
+    },
     mounted(){
      var mySwiper = new Swiper('.swiper-container', {
             direction: 'horizontal', // 垂直切换选项
@@ -288,6 +271,18 @@ export default {
                 dynamicMainBullets: 2
             },
         })
+        this.homes()
+  },
+  methods:{
+      async homes(){
+            const result = await home();
+            console.log(result)
+            console.log(result.data.banner);
+            this.pase =result.data.banner;
+            this.brandList = result.data.brandList;
+            this.channel = result.data.channel;
+      }
+      
   }
 }
 </script>
@@ -320,11 +315,13 @@ export default {
         justify-content: center;
         align-items:center;
     }
-    .home_nav ul li i{
-        height: 80%;
+    .home_nav ul li img{
+        width:45px;
+        height:45px;
         display: block;
         padding: .2rem;
         margin: auto;
+        
     }
     .home_nav ul li span{
         height: 20%;
