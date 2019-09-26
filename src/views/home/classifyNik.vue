@@ -6,18 +6,22 @@
            <div class="classfiy_nav" ref="list1">
                 <div class="classfiy_l" >
                     <span v-for="item in this.classifNicdata.brotherCategory" 
-                    :key="item.id" @click="detals(item.id)" :class="[flag===id?'active1':'']">
+                    :key="item.id" @click="detals(item.id)" :class="[flag===item.id?'active1':'']">
                          {{item.name}}
                     </span>
                 </div>
            </div>
            <div class="classifyNik_cont">
-                <div class="classCon">
+            
+                <div class="classCon" v-if="this.lisData.length">
                      <div class="classify_item" v-for="item in this.lisData" :key="item.id">
                           <p :style="{'backgroundImage':`Url(${item.list_pic_url})`}"></p>
                           <div>{{item.name}}</div>
                           <h4>￥{{item.retail_price}}元</h4>
                      </div>
+                </div>
+                <div v-else class="classify_zan">
+                       暂无数据
                 </div>
            </div>
     </div>
@@ -48,6 +52,8 @@
       methods:{
           ...mapActions('classify',['classifyNics','xiangList']),
           detals(id){
+              this.flag = id;
+              console.log(this.flag)
               this.xiangList({categoryId:id,size:20,page:1})
           }
       },
@@ -68,6 +74,10 @@
           height: 100%;
           display:flex;
           flex-flow: column;
+          .active1{
+              color:#108ee9;
+              border-bottom: .04rem solid #108ee9
+          }
       }
       .classfiy_nav{
            height:.8rem;
@@ -131,5 +141,9 @@
               }
           }
       }
-      
+      .classify_zan{
+          text-align: center;
+          height: 100%;
+          line-height: 12rem;
+      }
 </style>

@@ -1,6 +1,5 @@
 //分类页面仓库
 import {classifyInit,classifyCurrent,classifyNic,lis} from '../../http/classify'
-
 const classify={
      namespaced: true,
      state:{
@@ -12,19 +11,15 @@ const classify={
      mutations:{
          getclassifylist(state:any,arr:any){
             state.classifyData=arr;
-            //console.log(state.classifyData)
          },
          defaultDatas(state:any,arr:any){
             state.defaultData=arr;
-            //console.log(state.defaultData)
          },
          classifyDetals(state:any,arr:any){   //详情数据
              state.classifNicdata=arr;
-             //console.log(state.classifNicdata)
          },
          list(state:any,arr:any){  //分类详情数据
             state.lisData=arr;
-           // console.log(state.lisData)
          }
      },
      actions:{
@@ -51,9 +46,6 @@ const classify={
                 context.commit('list',res.data.goodsList)
             })
         }
-
      }
 }
-
-
 export default classify;
