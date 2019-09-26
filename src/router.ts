@@ -7,6 +7,10 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+        path:'/',
+        redirect:"/homePage"
+    },
+    {
       path: '/',
       name: 'home',
       component: ()=>import('./views/home/index.vue'),
@@ -43,6 +47,10 @@ export default new Router({
     {
        path:'/specialDl/:id',
        component:()=> import('./views/home/specialDl.vue')
+    },
+    {
+       path:'/classifyNik/:id',
+       component:()=> import('./views/home/classifyNik.vue')
     },
     {
       path: '/login',

@@ -277,7 +277,6 @@ export default {
       async homes(){
             const result = await home();
             console.log(result)
-            console.log(result.data.banner);
             this.pase =result.data.banner;
             this.brandList = result.data.brandList;
             this.channel = result.data.channel;
