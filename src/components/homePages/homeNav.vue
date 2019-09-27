@@ -13,7 +13,7 @@
         <div class="homeNav_tabWrap">
             <div class="homeNav_tabWrap_c">      
                         <u class="uls">
-                            <li class="uls_li" v-for="item in categoryList" :key="item.id">{{item.name}}</li>
+                            <li class="uls_li" v-for="item in categoryList" :key="item.id" @click='paseOnclick(item.id)'>{{item.name}}</li>
                         </u>
             </div>
            
@@ -24,66 +24,50 @@
         </div>
         <div class="homeNav_good">
             <div class="homeNav_good_list">
-                <a href="#">
+                <a href="#" v-for="item in list" :key="item.id">
                     <div class="homeNav_good_list_img">
-                        <img src="../../images/5.jpg" alt="">
+                        <img :src="item.list_pic_url" alt="">
                     </div>
                     <div class="homeNav_good_list_item">
-                        母亲节大大大
+                        {{item.name}}
                     </div>
                     <div class="homeNav_good_list_Price">
-                        ￥2598元
+                        ￥{{item.retail_price}}元
                     </div>
-                </a>
-                <a href="#">
-                    <div class="homeNav_good_list_img">
-                        <img src="../../images/5.jpg" alt="">
-                    </div>
-                    <div class="homeNav_good_list_item">
-                        母亲节大大大
-                    </div>
-                    <div class="homeNav_good_list_Price">
-                        ￥2598元
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="homeNav_good_list_img">
-                        <img src="../../images/5.jpg" alt="">
-                    </div>
-                    <div class="homeNav_good_list_item">
-                        母亲节大大大
-                    </div>
-                    <div class="homeNav_good_list_Price">
-                        ￥2598元
-                    </div>
-                </a>
-                
+                </a>   
             </div>
         </div>
     </div>
 </template>
 <script>
-import {catalog} from '../../http/home'
+import {catalog,list} from '../../http/home'
 export default {
     data(){
         return{
             categoryList:[],
-            id:''
+            id:'',
+            list:[]
         }
     },
     mounted(){
         this.id = this.$route.params.id
         console.log(this.$route.params.id)
-        this.catalogs()
+        this.catalogs(this.$route.params.id)
     },
     methods:{
         add(){
             this.$router.go(-1)
         },
-        async catalogs(){
+        async catalogs(categoryId){
              const result = await catalog()
              console.log(result.data.categoryList);
              this.categoryList = result.data.categoryList
+             const results = await list(1,1000,categoryId)
+             console.log(results)
+             this.list= results.data.data
+        },
+        paseOnclick(id){
+            this.catalogs(id)
         }
     }
 }

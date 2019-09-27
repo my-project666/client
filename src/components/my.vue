@@ -65,8 +65,22 @@
     </div>
 </template>
 <script>
+import {mys} from '../http/my'
 export default {
-    
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        async my(){
+            const result = await mys();
+            console.log(result);
+        }
+    },
+    mounted(){
+        this.my()
+    }
 }
 </script>
 <style scoped>
