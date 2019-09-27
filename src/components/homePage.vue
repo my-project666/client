@@ -276,7 +276,6 @@ export default {
   methods:{
       async homes(){
             const result = await home();
-            console.log(result)
             this.pase =result.data.banner;
             this.brandList = result.data.brandList;
             this.channel = result.data.channel;

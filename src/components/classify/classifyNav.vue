@@ -8,8 +8,6 @@
     >{{item.name}}</li>
   </ul>
 </template>    
-
-
 <script>
 import { mapState,mapActions} from "vuex";
 export default {
@@ -33,7 +31,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss">
 .list1 {
   width: 100%;

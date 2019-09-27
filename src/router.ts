@@ -26,11 +26,6 @@ export default new Router({
           component:()=>import('./components/my.vue')
         },
         {
-          path:'/ShoppingCart',
-          name:"ShoppingCart",
-          component:()=>import('./components/ShoppingCart.vue')
-        },
-        {
            path:"/shopCar",
            component:()=> import('./views/home/navPage/shopCar.vue')
          },
@@ -51,6 +46,10 @@ export default new Router({
     {
        path:'/classifyNik/:id',
        component:()=> import('./views/home/classifyNik.vue')
+    },
+    {
+       path:'/shops/:id',
+       component:()=> import('./views/home/shops.vue')
     },
     {
       path: '/login',

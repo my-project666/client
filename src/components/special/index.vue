@@ -16,8 +16,6 @@
         }
     }
 </script>
-
-
 <style lang="scss">
      .headerBus{
          width: 100%;

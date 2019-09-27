@@ -42,7 +42,7 @@ const classify={
         },
         xiangList(context:any,id:any){
             lis(id).then(res=>{
-                console.log(res.data)
+               // console.log(res.data)
                 context.commit('list',res.data.goodsList)
             })
         }

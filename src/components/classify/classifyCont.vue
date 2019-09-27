@@ -18,13 +18,11 @@
             </div>
         </div>
 </template>    
-
 <script>
     import {mapState,mapActions} from 'vuex'
     export default {
          methods:{
              detals(id){
-                 console.log(id)
                  this.$router.push(`/classifyNik/${id}`)
              }
          },
@@ -41,7 +39,6 @@
         overflow: auto;
         display: flex;
         flex-direction: column;
-       
     }
     .classif_right .classif_right_top{
         height: 2rem;

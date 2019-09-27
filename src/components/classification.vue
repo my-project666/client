@@ -23,6 +23,7 @@ import {mapActions,mapState} from 'vuex';
 import NavLick from './classify/classifyNav';
 import ClassifyCont from './classify/classifyCont'
 export default {
+     name:'classif',
      components:{
          NavLick,
          ClassifyCont

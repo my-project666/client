@@ -12,9 +12,9 @@
                 </div>
            </div>
            <div class="classifyNik_cont">
-            
                 <div class="classCon" v-if="this.lisData.length">
-                     <div class="classify_item" v-for="item in this.lisData" :key="item.id">
+                     <div class="classify_item" v-for="item in this.lisData" 
+                     :key="item.id" @click="classDetal(item.id)">
                           <p :style="{'backgroundImage':`Url(${item.list_pic_url})`}"></p>
                           <div>{{item.name}}</div>
                           <h4>￥{{item.retail_price}}元</h4>
@@ -26,8 +26,6 @@
            </div>
     </div>
 </template>
-
-
 <script>
   import {mapActions,mapState} from 'vuex';
   import HeadBus from '../../components/special/index.vue';
@@ -53,8 +51,10 @@
           ...mapActions('classify',['classifyNics','xiangList']),
           detals(id){
               this.flag = id;
-              console.log(this.flag)
               this.xiangList({categoryId:id,size:20,page:1})
+          },
+          classDetal(id){
+              this.$router.push(`/shops/${id}`)
           }
       },
       created(){
@@ -66,7 +66,6 @@
       }   
    }
 </script>
-
 <style lang="scss">
        .classifyNik{
           font-size: .4rem;
