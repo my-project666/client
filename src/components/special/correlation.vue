@@ -6,7 +6,6 @@
          </div>
     </div>
 </template>    
-
 <script>
      import { mapActions,mapState}  from 'vuex'
       export default {
@@ -17,7 +16,6 @@
          methods:{
              ...mapActions('special',['correlationList']),
               add(id){
-                  //this.$router.push(`/specialDl/${id}`)
                   this.$router.push('/homePage')
              } 
          },
@@ -26,8 +24,6 @@
          }
      }
 </script>  
-
-
 <style lang="scss">
     .correlation {
         font-size: .35rem;

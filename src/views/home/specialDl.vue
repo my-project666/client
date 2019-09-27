@@ -61,8 +61,6 @@
                 <div class="tui"> 推荐专题</div>
                 <Correlation :id="this.$route.params.id"></Correlation>
             </div>
-           
-            
          </div>
     </div>
 </template>
