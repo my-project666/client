@@ -5,13 +5,13 @@
             shopDetail:'',
             shopRelated:'',
             info:{},
-            gallery:[]
+            gallery:[],
       },
       mutations:{
            getshopDetial(state:any,arr:any){    //获取详情数据
                  state.shopDetail=arr;
                  state.info=arr.info;
-                 state.gallery=arr.gallery
+                 state.gallery=arr.gallery;
            },
            getshopRelated(state:any,arr:any){   //获取相关数据
                 state.shopRelated=arr
@@ -31,8 +31,6 @@
                 })
            }
       }
- } 
-
-
-
+ }
+ 
  export default shops
