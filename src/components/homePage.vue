@@ -71,8 +71,6 @@
                     </div>
                 </div>
             </a>
-          
-        
         </div>
     </div>
     <div class="home_topGoodsBox">
