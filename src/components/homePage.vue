@@ -2,48 +2,22 @@
     <div class="home">
         <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide" v-for="item in pase" :key="item.id">
                 <a href="javascript:">
-                     <img src="../images/1.jpg" alt="">
+                     <img :src="item.image_url" alt="">
                 </a>
             </div>
-            <div class="swiper-slide">
-                <a href="javascript:">
-                    <img src="../images/2.jpg" alt="">
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="javascript:">
-                    <img src="../images/3.jpg" alt="">
-                </a>
-            </div>
+           
         </div>
         <!-- 如果需要导航按钮 -->
         <div class="swiper-pagination"></div>
     </div>
     <div class="home_nav">
         <ul >
-            <li v-for="item in channel" :key="item.id">
+            <li v-for="item in channel" :key="item.id" @click="homeNav(item.id)">
                 <img :src="item.icon_url" alt="">
-                <!-- <i class="iconfont">&#xe60a;</i> -->
                 <span>{{item.name}}</span>
             </li>
-            <!-- <li>
-                <i class="iconfont">&#xe614;</i>
-                <span>餐厨</span>
-            </li>
-            <li>
-                <i class="iconfont">&#xe649;</i>
-                <span>配件</span>
-            </li>
-            <li>
-                <i class="iconfont">&#xe64c;</i>
-                <span>服装</span>
-            </li>
-            <li>
-                <i class="iconfont">&#xe606;</i>
-                <span>志趣</span>
-            </li> -->
         </ul>
     </div>
     <div class="home_brandBox">
@@ -51,7 +25,7 @@
             品牌制造商直供
         </div>
         <div class="home_brandBox_con">
-            <a href="#" v-for="item in brandList" :key="item.id">
+            <a href="#" v-for="item in brandList" :key="item.id" @click="shangOnclik(item.id)">
                 <div class="home_brandBox_con_div">
                     {{item.name}}
                 </div>
@@ -67,42 +41,15 @@
             新品首发
         </div>
         <div class="home_newGood_con">
-            <a href="#">
-                <img src="../images/8.png" alt="">
+            <a href="#" v-for="item in newGoodsList" :key='item.id' @click="newGoodsLists(item.id)">
+                <img :src="item.list_pic_url" alt="">
                 <div class="home_newGood_con_c">
-                    蔓越莓曲奇 200克
+                    {{item.name}}
                 </div>
                 <div class="home_newGood_con_cq">
-                    "￥"36
+                    ￥{{item.retail_price}}
                 </div>
-            </a>
-            <a href="#">
-                <img src="../images/9.png" alt="">
-                <div class="home_newGood_con_c">
-                    趣味粉彩系列笔记本
-                </div>
-                <div class="home_newGood_con_cq">
-                    "￥"29
-                </div>
-            </a>
-            <a href="#">
-                <img src="../images/10.png" alt="">
-                <div class="home_newGood_con_c">
-                    简约知性记忆棉坐式
-                </div>
-                <div class="home_newGood_con_cq">
-                    "￥"46
-                </div>
-            </a>
-            <a href="#">
-                <img src="../images/11.png" alt="">
-                <div class="home_newGood_con_c">
-                    趣味彩粉系列记忆棉坐式
-                </div>
-                <div class="home_newGood_con_cq">
-                    "￥"49
-                </div>
-            </a>
+            </a>     
         </div>
     </div>
     <div class="home_hotgats">
@@ -110,45 +57,17 @@
             人气推荐
         </div>
         <div class="home_hotgats_con">
-            <a href="#">
-                <img src="../images/12.png" alt="">
+            <a href="#" v-for="item in hotGoodsList" :key="item.id" @click="tuijianClick">
+                <img :src="item.list_pic_url" alt="">
                 <div class="home_hotgats_con_acon">
                     <div class="home_hotgats_con_acon_t">
-                        双攻蚕丝被 空调被
+                        {{item.name}}
                     </div>
                     <div class="home_hotgats_con_acon_b">
-                        双攻蚕丝被 空调被
+                        {{item.name}}
                     </div>
                     <div class="home_hotgats_con_acon_many">
-                        "￥"699
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <img src="../images/13.png" alt="">
-                <div class="home_hotgats_con_acon">
-                    <div class="home_hotgats_con_acon_t">
-                        双攻蚕丝被 空调被
-                    </div>
-                    <div class="home_hotgats_con_acon_b">
-                        双攻蚕丝被 空调被
-                    </div>
-                    <div class="home_hotgats_con_acon_many">
-                        "￥"699
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <img src="../images/14.png" alt="">
-                <div class="home_hotgats_con_acon">
-                    <div class="home_hotgats_con_acon_t">
-                        双攻蚕丝被 空调被
-                    </div>
-                    <div class="home_hotgats_con_acon_b">
-                        双攻蚕丝被 空调被
-                    </div>
-                    <div class="home_hotgats_con_acon_many">
-                        "￥"699
+                        "￥"{{item.retail_price}}
                     </div>
                 </div>
             </a>
@@ -162,72 +81,38 @@
             <div class="home_topGoodsBox_con_c">
                 <div class="home_topGoodsBox_con_con">
                     <ul>
-                        <li class="li1">
+                        <li class="li1" v-for="item in topicList" :key="item.id">
                             <a href="#">
-                                <img src="../images/a1.jpg" alt="">
+                                <img :src="item.scene_pic_url" alt="">
                                 <div class="home_a_con">
-                                    撒到我萨达的娃啊低洼
-                                    <span>￥0元起</span>
+                                    {{item.title}}
+                                    <span>￥{{item.price_info}}元起</span>
                                 </div>
                                 <div class="home_a_con_topGood">
-                                    专业运动品牌同矿，毛毛虫鞋买二送一
+                                    {{item.subtitle}}
                                 </div>
                             </a>
                         </li>
-                        <li class="li2">
-                            <a href="#">
-                                <img src="../images/a2.jpg" alt="">
-                                <div class="home_a_con">
-                                    撒到我萨达的娃啊低洼
-                                    <span>￥0元起</span>
-                                </div>
-                                <div class="home_a_con_topGood">
-                                    专业运动品牌同矿，毛毛虫鞋买二送一
-                                </div>
-                            </a>
-                        </li>
-                        <li class="li3">
-                            <a href="#">
-                                <img src="../images/a3.jpg" alt="">
-                                <div class="home_a_con">
-                                    撒到我萨达的娃啊低洼
-                                    <span>￥0元起</span>
-                                </div>
-                                <div class="home_a_con_topGood">
-                                    专业运动品牌同矿，毛毛虫鞋买二送一
-                                </div>
-                            </a>
-                        </li>
+                       
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="home_create">
+    <div class="home_create" v-for="item in categoryList" :key="item.id">
         <div class="home_create_top">
-            家居
+            {{item.name}}
         </div>
-        <div class="home_create_con">
-            <a href="#">
+        <div class="home_create_con" >
+            <a href="#" v-for="ites in item.goodsList" :key="ites.id">
                 <div class="home_create_con_img">
-                    <img src="../images/b1.png" alt="">
+                    <img :src="ites.list_pic_url" alt="">
                 </div>
                 <div class="home_create_con_name">
-                    撒法发是娃娃福娃
+                    {{ites.name}}
                 </div>
                 <div class="home_create_con_Price">
-                    ￥599
-                </div>
-            </a>
-            <a href="#">
-                <div class="home_create_con_img">
-                    <img src="../images/b1.png" alt="">
-                </div>
-                <div class="home_create_con_name">
-                    撒法发是娃娃福娃
-                </div>
-                <div class="home_create_con_Price">
-                    ￥599
+                    ￥{{ites.retail_price}}
                 </div>
             </a>
         </div>
@@ -244,7 +129,10 @@ export default {
             pase:[],
             brandList:[],
             channel:[],
-            iconfonts:['&#xe60a;','&#xe614;']
+            newGoodsList:[],
+            hotGoodsList:[],
+            topicList:[],
+            categoryList:[]
         }
     },
     mounted(){
@@ -276,9 +164,31 @@ export default {
   methods:{
       async homes(){
             const result = await home();
+            console.log(result.data)
             this.pase =result.data.banner;
             this.brandList = result.data.brandList;
+            console.log( result.data.brandList)
             this.channel = result.data.channel;
+            this.newGoodsList = result.data.newGoodsList;
+            this.hotGoodsList = result.data.hotGoodsList;
+            this.topicList = result.data.topicList;
+            this.categoryList = result.data.categoryList;
+            
+      },
+      homeNav (id){
+          this.$router.history.push('/homeNavse/'+id)
+      },
+      //品牌制造商直供
+      shangOnclik(id){
+          this.$router.history.push('/shangPin/'+id)
+      },
+      //新品首发
+      newGoodsLists(id){
+          this.$router.history.push('/newGoods/'+id)
+      },
+      //人气推荐
+      tuijianClick(){
+          this.$router.history.push('/tuijians')
       }
       
   }
@@ -527,30 +437,21 @@ export default {
         overflow: auto;
     }
     .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul{
-        transform: translate3d(-310.625px, 0px, 0px);
-        
-        position: relative;
-        display: block;
-        margin: 0px -5px;
-        padding: 0px;
         height: 252px;
-        width: 986.25px;
-        cursor: inherit;
-        box-sizing: border-box;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        
     }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul .li1{
-        position: absolute;
-        left: 657.5px;
-        top: 0px;
-        display: inline-block;
-        list-style-type: none;
-        vertical-align: top;
-        width: 318.75px;
-        height: auto;
-        box-sizing: border-box;
-        margin: auto 5px;
+    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li{
+        width:318px;
+        height: 252px;
+        flex-shrink: 0;
     }
     .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a{
+        width: 318;
         height: 5rem;
     }
     .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a img{
@@ -558,52 +459,7 @@ export default {
         -webkit-transition: all 1s;
         transition: all 1s;
         height: 4rem;
-        width: 100%;
-    }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a .home_a_con{
-        font-size: .32rem;
-    }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a .home_a_con span{
-        color: darkred;
-    }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a .home_a_con_topGood{
-        font-size: .24rem;
-        color: gray;
-    }
-
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul .li2{
-        position: absolute;
-        left: 328.75px;
-        top: 0px;
-        display: inline-block;
-        list-style-type: none;
-        vertical-align: top;
-        width: 318.75px;
-        height: auto;
-        box-sizing: border-box;
-        margin: auto 5px;
-    }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul .li3{
-        position: absolute;
-        left: 986.25px;
-        top: 0px;
-        display: inline-block;
-        list-style-type: none;
-        vertical-align: top;
-        width: 318.75px;
-        height: auto;
-        box-sizing: border-box;
-        margin: auto 5px;
-    }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a{
-        height: 5rem;
-    }
-    .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a img{
-        opacity: 1;
-        -webkit-transition: all 1s;
-        transition: all 1s;
-        height: 4rem;
-        width: 100%;
+        width:318px;
     }
     .home_topGoodsBox .home_topGoodsBox_con .home_topGoodsBox_con_con ul li a .home_a_con{
         font-size: .32rem;

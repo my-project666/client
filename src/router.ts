@@ -56,6 +56,22 @@ export default new Router({
       name: 'login',
       component: () => import('@/views/login/index.vue')
 
+    },
+    {
+      path:'/homeNavse/:id?',
+      component:()=>import('./components/homePages/homeNav.vue')
+    },
+    {
+      path:'/shangPin/:id?',
+      component:()=>import('./components/homePages/shangPin.vue')
+    },
+    {
+      path:'/newGoods/:id?',
+      component:()=>import('./components/homePages/newGoods.vue')
+    },
+    {
+      path:'/tuijians',
+      component:()=>import('./components/homePages/tuijians.vue')
     }
   ]
 })
