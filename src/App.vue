@@ -15,10 +15,7 @@
     width: 100%;
     height: 100%;
     background: #f5f5f9;
-  }
-  html{
-    font-size:13.333333vw;
-  }
+  } 
   html{
       // font-size: calc(100/375*100vw);
       font-size: 13.333333vw;

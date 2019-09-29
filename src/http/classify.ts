@@ -14,6 +14,6 @@ export function classifyNic (params:any){
 }
 
 //根据分类Id或者制造商Id获取商品
-export function lis (id:any){
-    return request.get('/goods/list',{params:id})
+export function lis (params:any){
+    return request.get('/goods/list',{params})
 }

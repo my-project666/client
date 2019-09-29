@@ -4,6 +4,7 @@ console.log(getToken('token'))
 const instance = axios.create({
     baseURL: 'http://127.0.0.1:8888', //是用于请求的服务器URL
     timeout:5000, //请求超时时间  如果请求花费超过了timeout 的时间，请求将被中断
+    // timeout:1000, //请求超时时间  如果请求花费超过了timeout 的时间，请求将被中断
     headers:{'token':getToken('token')}//自定义请求头
 });
 instance.interceptors.request.use((config)=>{
